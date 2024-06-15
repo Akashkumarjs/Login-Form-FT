@@ -83,39 +83,66 @@
         <center>
             <h1>Login Form</h1>
             <form>
-                Username:<input type="text" placeholder="Example" required><br>
+                Username:<input type="text" id="urname"" required><br>
                 D.O.B.:<input type="date" required><br>
-                Gmail ID:<input type="email" id="gid" placeholder="example@xyz.com" required><br>
-                Password:<input type="password" placeholder="Example$123" id="password" oninput="strengthChecker()">
+                Gmail ID:<input type="email" id="gid" required><br>
+                Password:<input type="password" id="password" oninput="strengthChecker()">
                 <span style="cursor: pointer;color: #808080;transition: 0s;" id="toggle" onclick="toggle()">
                     <i class="fas fa-eye"></i>
                 </span>
                 <div id="strength-bar"></div>
                 <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg">Your password is very weak</p>
-                Adhaar No.:<input type="number" max="999999999999" placeholder="XXXX XXXX XXXX" required><br>
+                Adhaar No.:<input type="number" id="adid" max="999999999999" required><br>
                 Gender:<br><select name="house" class="list" style="padding: 5px;cursor: pointer;" size="3" required>
                     <option value="Madhubani">Male
                     </option><option value="Nalanda">Female
                     </option><option value="Rajgriha">Other</option></select><br>
-                Description:<br><textarea type="comments" placeholder="Your comments here" rows="4" columns="50" wrap=""></textarea><br>
+                Description:<br><textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
                 <button type="reset" style="margin-right: 20px;">Clear</button>
                 <a herf="#"><button type="submit">Submit</button></a>
             </form>
         </center>
         <script>
-            let i = 0;
-            let placeholder = "";
-            const txt = "example@xyz.com";
-            const speed = 120;
-            
-            function type(){
-                placeholder += txt.charAt(i);
-                document.getElementById("gid").setAttribute("placeholder",placeholder);
-                i++;
-                setTimeout(type,speed);
+            // script.js
+
+            // Function to create progressive writing placeholder
+            function setProgressivePlaceholder(inputElement, text, delay = 100) {
+                let currentIndex = 0;
+
+                const typeText = () => {
+                    if (currentIndex < text.length) {
+                        inputElement.placeholder += text[currentIndex];
+                        currentIndex++;
+                        setTimeout(typeText, delay);
+                    }
+                };
+
+                // Reset placeholder before starting
+                inputElement.placeholder = '';
+                typeText();
             }
-            
-            type();
+
+            // Function to handle progressive writing for all inputs simultaneously
+            function applyProgressivePlaceholders() {
+                const inputs = [
+                    { id: 'urname', text: 'Example' },
+                    { id: 'gid', text: 'Example@xyz.com' },
+                    { id: 'password', text: 'Example$123' },
+                    { id: 'adid', text: 'XXXX XXXX XXXX' },
+                    { id: 'cots', text: 'Your comments here' },
+                ];
+
+                // Start the progressive placeholder for all inputs simultaneously
+                inputs.forEach(input => {
+                    const element = document.getElementById(input.id);
+                    if (element) {
+                        setProgressivePlaceholder(element, input.text);
+                    }
+                });
+            }
+
+            // Execute the function on page load
+            window.onload = applyProgressivePlaceholders;
         </script>
         <script>
             let parameters = {
