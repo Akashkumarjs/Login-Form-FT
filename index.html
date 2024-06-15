@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <title>Login Form</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                font-family: poppins;
+                transition: 0.5s;
+            }
+            body {
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+
+            h1 {
+                margin: 20px;
+            }
+
+            form {
+                background: #fff;
+                margin: 20px;
+                padding: 20px;
+                width: max-content;
+                box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+                
+            }
+            input {
+                height: 20px;
+                width: 200px;
+                outline: none;
+                border: none;
+                padding: 15px 5px;
+                margin: 10px;
+                background-color: rgb(0 0 0 / 5%);
+            }
+
+            textarea {
+                outline: none;
+                border: none;
+                padding: 5px;
+                margin: 10px;
+                width: 300px;
+                transition: 0S;
+                background-color: rgb(0 0 0 / 5%);
+            }
+
+            input:hover {
+                background-color: rgb(0 0 0 / 7.5%);
+            }
+
+            textarea:hover {
+                background-color: rgb(0 0 0 / 7.5%);
+            }
+
+            button {
+                margin-top: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: rgb(106, 159, 165);
+                box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+            }
+
+            button:hover {
+                background-color: rgb(114 172 179);
+                box-shadow: 0px 0px 15px 0px rgb(0, 0, 0 / 5%);
+            }
+
+            button:active {
+                background-color: rgb(106, 159, 165);
+            }
+
+            .list {
+                border: none;
+                outline: none;
+            }
+        </style>
+    </head>
+    <body background="https://lh3.googleusercontent.com/drive-viewer/AKGpihanxenR6jCNTsFh85mLmVt4g2xTvt4aiuvWTk49dW25OM8xOhROu0svplmOy9A7j40-pl4uPpYDiZxnS2hVc1LHrfIrjWF-cw=s1600-rw-v1">
+        <center>
+            <h1>Login Form</h1>
+            <form>
+                Username:<input type="text" placeholder="Example" required><br>
+                D.O.B.:<input type="date" required><br>
+                Gmail ID:<input type="email" id="gid" placeholder="example@xyz.com" required><br>
+                Password:<input type="password" placeholder="Example$123" id="password" oninput="strengthChecker()">
+                <span style="cursor: pointer;color: #808080;transition: 0s;" id="toggle" onclick="toggle()">
+                    <i class="fas fa-eye"></i>
+                </span>
+                <div id="strength-bar"></div>
+                <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg">Your password is very weak</p>
+                Adhaar No.:<input type="number" max="999999999999" placeholder="XXXX XXXX XXXX" required><br>
+                Gender:<br><select name="house" class="list" style="padding: 5px;cursor: pointer;" size="3" required>
+                    <option value="Madhubani">Male
+                    </option><option value="Nalanda">Female
+                    </option><option value="Rajgriha">Other</option></select><br>
+                Description:<br><textarea type="comments" placeholder="Your comments here" rows="4" columns="50" wrap=""></textarea><br>
+                <a herf="#"><button type="submit">Submit</button></a>
+            </form>
+        </center>
+        <script>
+            let i = 0;
+            let placeholder = "";
+            const txt = "example@xyz.com";
+            const speed = 120;
+            
+            function type(){
+                placeholder += txt.charAt(i);
+                document.getElementById("gid").setAttribute("placeholder",placeholder);
+                i++;
+                setTimeout(type,speed);
+            }
+            
+            type();
+        </script>
+        <script>
+            let parameters = {
+                count : false,
+                letters : false,
+                numbers : false,
+                special : false
+            }
+            let strengthBar = document.getElementById("strength-bar");
+            let msg = document.getElementById("msg");
+
+            function strengthChecker(){
+                let password = document.getElementById("password").value;
+
+                parameters.letters = (/[A-Za-z]+/.test(password))?true:false;
+                parameters.numbers = (/[0-9]+/.test(password))?true:false;
+                parameters.special = (/[!\"$%&/()=?@~`\\.\';:+=^*_-]+/.test(password))?true:false;
+                parameters.count = (password.length > 7)?true:false;
+
+                let barLength = Object.values(parameters).filter(value=>value);
+
+                console.log(Object.values(parameters), barLength);
+
+                strengthBar.innerHTML = "";
+                for( let i in barLength){
+                    let span = document.createElement("span");
+                    span.classList.add("strength");
+                    strengthBar.appendChild(span);
+                }
+
+                let spanRef = document.getElementsByClassName("strength");
+                for( let i = 0; i < spanRef.length; i++){
+                    switch(spanRef.length - 1){
+                        case 0 :
+                            spanRef[i].style.background = "#ff3e36";
+                            msg.textContent = "Your password is very weak";
+                            break;
+                        case 1:
+                            spanRef[i].style.background = "#ff691f";
+                            msg.textContent = "Your password is weak";
+                            break;
+                        case 2:
+                            spanRef[i].style.background = "#ffda36";
+                            msg.textContent = "Your password is good";
+                            break;
+                        case 3:
+                            spanRef[i].style.background = "#0be881";
+                            msg.textContent = "Your password is strong";
+                            break;
+                    }
+                }
+            }
+
+
+            function toggle(){
+                let password = document.getElementById("password");
+                let eye = document.getElementById("toggle");
+
+                if(password.getAttribute("type") == "password"){
+                    password.setAttribute("type","text");
+                    eye.style.color = "rgb(106 159 165)";
+                }
+                else{
+                    password.setAttribute("type","password");
+                    eye.style.color = "#808080";
+                }
+            }
+        </script>
+    </body>
+</html>
