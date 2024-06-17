@@ -8,6 +8,10 @@
                 font-family: poppins;
                 transition: 0.5s;
             }
+
+            ::selection {
+                background-color: rgb(0 200 225 / 25%);
+            }
             body {
                 background-size: cover;
                 background-position: center;
@@ -31,9 +35,36 @@
                 width: 200px;
                 outline: none;
                 border: none;
-                padding: 15px 5px;
+                position: relative;
+                padding: 15px 5px 15px 27px;
                 margin: 10px;
                 background-color: rgb(0 0 0 / 5%);
+            }
+
+            input:hover {
+                background-color: rgb(0 0 0 / 7.5%);
+            }
+
+            .pass {
+                position: relative;
+            }
+
+            #toggle {
+                position: absolute;
+                top: 17px;
+                right: 22px;
+                transition: 0s;
+                color: #808080;
+                cursor: pointer;
+            }
+
+            select {
+                margin: 0px 10px 10px;
+                background-color: rgb(0 0 0 / 5%);
+            }
+
+            select:hover {
+                background-color: rgb(0 0 0 / 7.5%);
             }
 
             textarea {
@@ -44,10 +75,6 @@
                 width: 300px;
                 transition: 0S;
                 background-color: rgb(0 0 0 / 5%);
-            }
-
-            input:hover {
-                background-color: rgb(0 0 0 / 7.5%);
             }
 
             textarea:hover {
@@ -83,21 +110,24 @@
         <center>
             <h1>Login Form</h1>
             <form>
-                Username:<input type="text" id="urname"" required><br>
-                D.O.B.:<input type="date" required><br>
-                Gmail ID:<input type="email" id="gid" required><br>
-                Password:<input type="password" id="password" oninput="strengthChecker()">
-                <span style="cursor: pointer;color: #808080;transition: 0s;" id="toggle" onclick="toggle()">
+                Username:<input type="text" style="left: 2px;" id="urname" required><br>
+                D.O.B.:<input type="date" style="cursor: pointer;left: 21.5px;" id="dt" required><br>
+                Gmail ID:<input type="email" style="left: 9.5px;" id="gid" required><br>
+                <div class="pass">
+                Password:<i class="fas fa-lock" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                <input type="password" id="password" style="padding-right: 30px;padding-left: 30px;left: 3px;" oninput="strengthChecker()">
+                <span id="toggle" onclick="toggle()">
                     <i class="fas fa-eye"></i>
                 </span>
                 <div id="strength-bar"></div>
-                <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg">Your password is very weak</p>
-                Adhaar No.:<input type="number" id="adid" max="999999999999" required><br>
+                </div>
+                <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg"></p>
+                Adhaar No.:<input type="number" id="adno" max="999999999999" required><br>
                 Gender:<br><select name="house" class="list" style="padding: 5px;cursor: pointer;" size="3" required>
                     <option value="Madhubani">Male
                     </option><option value="Nalanda">Female
                     </option><option value="Rajgriha">Other</option></select><br>
-                Description:<br><textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
+                Suggestions to Improve this Page:<br><textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
                 <button type="reset" style="margin-right: 20px;">Clear</button>
                 <a herf="#"><button type="submit">Submit</button></a>
             </form>
@@ -128,8 +158,8 @@
                     { id: 'urname', text: 'Example' },
                     { id: 'gid', text: 'Example@xyz.com' },
                     { id: 'password', text: 'Example$123' },
-                    { id: 'adid', text: 'XXXX XXXX XXXX' },
-                    { id: 'cots', text: 'Your comments here' },
+                    { id: 'adno', text: 'XXXX XXXX XXXX' },
+                    { id: 'cots', text: 'Your thoughts here' },
                 ];
 
                 // Start the progressive placeholder for all inputs simultaneously
