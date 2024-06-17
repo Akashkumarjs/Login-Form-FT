@@ -103,6 +103,7 @@
             .list {
                 border: none;
                 outline: none;
+                padding: 5px 5px 5px 16px;
                 overflow: hidden;
             }
         </style>
@@ -111,11 +112,11 @@
         <center>
             <h1>Login Form</h1>
             <form>
-                <div class="pass">Username:<i class="fas fa-user" style="position: absolute;color: #808080;top: 16;left: 114;"></i>
+                <div class="pass">Username:<i class="fas fa-user" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
                 <input type="text" style="left: 2px;" id="urname" required></div>
-                <div class="pass">D.O.B.:<i class="fas fa-calendar" style="position: absolute;color: #808080;top: 16;left: 114;"></i>
+                <div class="pass">D.O.B.:<i class="fas fa-calendar" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
                 <input type="date" style="cursor: pointer;left: 21.5px;" id="dt" required></div>
-                <div class="pass">Gmail ID:<i class="fas fa-envelope" style="position: absolute;color: #808080;top: 16;left: 114;"></i>
+                <div class="pass">Gmail ID:<i class="fas fa-envelope" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
                 <input type="email" style="left: 9.5px;padding-left: 30px;" id="gid" required></div>
                 <div class="pass">
                 Password:<i class="fas fa-lock" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
@@ -126,12 +127,12 @@
                 <div id="strength-bar"></div>
                 </div>
                 <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg"></p>
-                <div class="pass">Adhaar No.:<i class="fas fa-address-card" style="position: absolute;color: #808080;top: 16;left: 114;"></i>
-                    <input type="number" style="padding-left: 30px;" id="adno" max="999999999999" required></div>
-                Gender:<br><select name="house" class="list" style="padding: 5px;cursor: pointer;" size="3" required>
-                    <option value="Madhubani">Male
-                    </option><option value="Nalanda">Female
-                    </option><option value="Rajgriha">Other</option></select><br>
+                <div class="pass">Adhaar No.:<i class="fas fa-address-card" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                <input type="number" style="padding-left: 30px;" id="adno" max="999999999999" required></div>
+                <div class="pass">Gender:<br><i class="fas fa-male" style="position: absolute;color: #808080;top: 31px;left: 130px;"></i><i class="fas fa-female" style="position: absolute;color: #808080;top: 53px;left: 130px;"></i><select name="house" class="list" style="cursor: pointer;" size="3" required>
+                    <option value="Madhubani">Male</option></div>
+                    <option value="Nalanda">Female</option>
+                    <option value="Rajgriha">Other</option></select><br>
                 Suggestions to Improve this Page:<br><textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
                 <button type="reset" style="margin-right: 20px;">Clear</button>
                 <a herf="#"><button type="submit">Submit</button></a>
