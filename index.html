@@ -111,7 +111,7 @@
     <body background="https://lh3.googleusercontent.com/drive-viewer/AKGpihanxenR6jCNTsFh85mLmVt4g2xTvt4aiuvWTk49dW25OM8xOhROu0svplmOy9A7j40-pl4uPpYDiZxnS2hVc1LHrfIrjWF-cw=s1600-rw-v1">
         <center>
             <h1>Login Form</h1>
-            <form>
+            <form method="post" action="mailto:akashkumar2011k" enctype="text/plain">
                 <div class="pass">
                     Username:
                     <i class="fas fa-user" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
@@ -139,7 +139,7 @@
                 <div class="pass">
                     Adhaar No.:
                     <i class="fas fa-address-card" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                    <input type="number" style="padding-left: 30px;" id="adno" max="999999999999" required>
+                    <input type="number" name="adno" style="padding-left: 30px;" id="adno" max="999999999999" required>
                 </div>
                 <div class="pass">
                     Gender:<br>
@@ -153,7 +153,7 @@
                     </select>
                 </div>
                 Suggestions to Improve this Page:<br>
-                <textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
+                <textarea type="comments" name="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
                 <button type="reset" style="margin-right: 20px;">Clear</button>
                 <a herf="#"><button type="submit">Submit</button></a>
             </form>
