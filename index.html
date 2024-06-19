@@ -112,28 +112,47 @@
         <center>
             <h1>Login Form</h1>
             <form>
-                <div class="pass">Username:<i class="fas fa-user" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                <input type="text" style="left: 2px;" id="urname" required></div>
-                <div class="pass">D.O.B.:<i class="fas fa-calendar" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                <input type="date" style="cursor: pointer;left: 21.5px;" id="dt" required></div>
-                <div class="pass">Gmail ID:<i class="fas fa-envelope" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                <input type="email" style="left: 9.5px;padding-left: 30px;" id="gid" required></div>
                 <div class="pass">
-                Password:<i class="fas fa-lock" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                <input type="password" id="password" style="padding-right: 27px;left: 5px;" oninput="strengthChecker()">
-                <span id="toggle" onclick="toggle()">
-                    <i class="fas fa-eye"></i>
-                </span>
-                <div id="strength-bar"></div>
+                    Username:
+                    <i class="fas fa-user" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                    <input type="text" name="urname" style="left: 2px;" id="urname" required>
+                </div>
+                <div class="pass">
+                    D.O.B.:
+                    <i class="fas fa-calendar" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                    <input type="date" name="dob" style="cursor: pointer;left: 21.5px;" id="dt" required>
+                </div>
+                <div class="pass">
+                    Gmail ID:
+                    <i class="fas fa-envelope" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                    <input type="email" name="email" style="left: 9.5px;padding-left: 30px;" id="gid" required>
+                </div>
+                <div class="pass">
+                    Password:<i class="fas fa-lock" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                    <input type="password" name="pass" id="password" style="padding-right: 27px;left: 5px;" oninput="strengthChecker()">
+                    <span id="toggle" onclick="toggle()">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                    <div id="strength-bar"></div>
                 </div>
                 <p style="margin: 0px;font-family: abel;color: rgb(19, 60, 51);" id="msg"></p>
-                <div class="pass">Adhaar No.:<i class="fas fa-address-card" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
-                <input type="number" style="padding-left: 30px;" id="adno" max="999999999999" required></div>
-                <div class="pass">Gender:<br><i class="fas fa-male" style="position: absolute;color: #808080;top: 31px;left: 130px;"></i><i class="fas fa-female" style="position: absolute;color: #808080;top: 53px;left: 129.5px;"></i><select name="house" class="list" style="cursor: pointer;" size="3" required>
-                    <option value="Madhubani">Male</option></div>
-                    <option value="Nalanda">Female</option>
-                    <option value="Rajgriha">Other</option></select><br>
-                Suggestions to Improve this Page:<br><textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
+                <div class="pass">
+                    Adhaar No.:
+                    <i class="fas fa-address-card" style="position: absolute;color: #808080;top: 16px;left: 114px;"></i>
+                    <input type="number" style="padding-left: 30px;" id="adno" max="999999999999" required>
+                </div>
+                <div class="pass">
+                    Gender:<br>
+                    <i class="fas fa-male" style="position: absolute;color: #808080;top: 31px;left: 130px;"></i>
+                    <i class="fas fa-female" style="position: absolute;color: #808080;top: 53px;left: 129px;"></i>
+                    <select name="gender" class="list" style="cursor: pointer;" size="3" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                Suggestions to Improve this Page:<br>
+                <textarea type="comments" id="cots" rows="4" columns="50" wrap=""></textarea><br>
                 <button type="reset" style="margin-right: 20px;">Clear</button>
                 <a herf="#"><button type="submit">Submit</button></a>
             </form>
