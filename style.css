@@ -53,8 +53,8 @@
 
             #toggle {
                 position: absolute;
-                top: 17px;
-                right: 19px;
+                top: 13px;
+                right: 21px;
                 transition: 0s;
                 color: #808080;
                 cursor: pointer;
